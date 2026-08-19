@@ -42,11 +42,10 @@ Singleton {
     }
 
     component FontFamily: QtObject {
-        readonly property string sans: "AnonymicePro Nerd Font Mono"
-        readonly property string mono: "AnonymicePro Nerd Font Mono"
+        readonly property string sans: "Inter 18pt"
+        readonly property string mono: "Google Sans Code"
         readonly property string nerd: "AnonymicePro Nerd Font"
         readonly property string material: "Material Symbols Rounded"
-        readonly property string clock: "Inter 18pt"
     }
 
     component FontSize: QtObject {
