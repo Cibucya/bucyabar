@@ -21,8 +21,8 @@ Item {
 		animate: true
 
 		color: "transparent"
-		border.color: AppearanceConf.getColor("text", 0.3)
-		border.width: 1
+		border.color: AppearanceConf.alpha(AppearanceConf.text, 0.3)
+		border.width: 2
 
 		Item {
 			id: activeWindowContainer
@@ -57,11 +57,11 @@ Item {
 			hoverEnabled: true
 
 			onEntered: {
-				background.border.width = 4
+				background.border.width = 3
 			}
 
 			onExited: {
-				background.border.width = 1
+				background.border.width = 2
 			}
 		}
 

@@ -19,7 +19,7 @@ Scope {
 			anchors { top: true; left: true; right: true }
 			implicitHeight: BarConf.barHeight + BarConf.screenSeparator.height
 			//color: AppearanceConf.alpha(AppearanceConf.bg, 0.0)
-			color: AppearanceConf.alpha(AppearanceConf.bg, 0.9)
+			color: AppearanceConf.alpha(AppearanceConf.bg, 0.2)
 
 			Rectangle {
 				height: BarConf.screenSeparator.height
@@ -30,22 +30,21 @@ Scope {
 				anchors.right: parent.right
 			}
 			//color: "#FF000050"
-			
+
 			// Left section
 			RowLayout {
 				anchors {
 					left: parent.left
-					leftMargin: AppearanceConf.padding.large
+					leftMargin: AppearanceConf.padding.largest
 					verticalCenter: parent.verticalCenter
 				}
 				spacing: BarConf.spacing.def
-				
-				// Arch logo
+
 				Text {
-					text: ""
+					text: Icons.osIcons.hyprland
 					color: AppearanceConf.text
 					font.family: AppearanceConf.font.family.nerd
-					font.pixelSize: AppearanceConf.font.size.large
+					font.pixelSize: AppearanceConf.font.size.largest
 				}
 			}
 			
@@ -60,7 +59,7 @@ Scope {
 			RowLayout {
 				anchors {
 					right: parent.right
-					rightMargin: AppearanceConf.padding.large
+					rightMargin: AppearanceConf.padding.largest
 					verticalCenter: parent.verticalCenter
 				}
 				spacing: BarConf.spacing.def

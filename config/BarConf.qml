@@ -2,6 +2,7 @@ pragma Singleton
 
 import QtQuick
 import Quickshell
+import qs.config
 
 Singleton {
 	id: root
@@ -32,6 +33,6 @@ Singleton {
 
 	component ScreenSeparator: QtObject {
 		readonly property int height: 1
-		readonly property string color: "#10ffffff"
+		readonly property string color: AppearanceConf.alpha(AppearanceConf.colors.bright, 0.1);
 	}
 }
