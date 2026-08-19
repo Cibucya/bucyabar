@@ -15,7 +15,7 @@ Item {
 		anchors.centerIn: parent
 
 		implicitHeight: BarConf.barHeight - AppearanceConf.padding.small
-		implicitWidth: activeWindow.implicitWidth + AppearanceConf.padding.large * 2
+		implicitWidth: activeWindow.implicitWidth + AppearanceConf.padding.smaller * 2
 		clip: true
 
 		animate: true
