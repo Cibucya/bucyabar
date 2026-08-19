@@ -52,7 +52,7 @@ Scope {
 			RowLayout {
 				anchors.centerIn: parent
 				spacing: BarConf.spacing.def
-				SearchWrapper {}
+				IslandWrapper {}
 			}
 			
 			// Right section
