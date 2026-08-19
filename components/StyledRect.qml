@@ -12,7 +12,7 @@ Rectangle {
 
 	color: "transparent"
 	radius: AppearanceConf.rounding.small
-	border.color: AppearanceConf.getColor("bg", 0.5)
+	border.color: AppearanceConf.alpha(AppearanceConf.colors.light, 0.5)
 	border.width: 0
 
 	Behavior on border.width {
