@@ -17,16 +17,30 @@ RowLayout {
 	}
 
 	// Use property aliases or local properties for config if needed
-	spacing: 5 
+	spacing: 5
 	implicitWidth: volumeIcon.implicitWidth + volumeBackground.implicitWidth + spacing
 	implicitHeight: BarConf.barHeight
 
 	MaterialIcon {
 		id: volumeIcon
-		text: "volume_down"
-		color: AppearanceConf.text
+
+		readonly property var audio: Pipewire.defaultAudioSink?.audio
+		readonly property bool isMuted: audio?.muted ?? false
+		readonly property real vol: audio?.volume ?? 0
+
+		text: {
+			if (isMuted || vol < 0.001) return "volume_off"
+			if (vol < 0.5) return "volume_down"
+			return "volume_up"
+		}
+
+		color: {
+			if (isMuted || vol < 0.001) return AppearanceConf.colors.mute
+			return AppearanceConf.text
+		}
+
 		anchors.verticalCenter: parent.verticalCenter
-		font.pointSize: AppearanceConf.font.size.large
+		font.pointSize: AppearanceConf.font.size.larger
 	}
 
 	Rectangle {
