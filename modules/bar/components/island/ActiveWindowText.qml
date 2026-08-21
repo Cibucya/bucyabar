@@ -9,17 +9,17 @@ import qs.services
 Item {
 	id: root
 
-	implicitWidth: activeWindowTitle.implicitWidth
-	implicitHeight: activeWindowTitle.implicitHeight
+	implicitWidth: activeToplevelTitle.implicitWidth
+	implicitHeight: activeToplevelTitle.implicitHeight
 
 	Text {
-		id: activeWindowTitle
-		visible: BarConf.status.showActiveWindowTitle
+		id: activeToplevelTitle
+		visible: BarConf.status.showActiveToplevelTitle
 		font.family: AppearanceConf.font.family.sans
 		font.pixelSize: AppearanceConf.font.size.larger
 		color: AppearanceConf.text
 
-		text: (Hypr.activeToplevelClass == "" ? "desktop" : Hypr.activeToplevelClass)
+		text: (Hypr.activeToplevelClass == "" ? "desktop" : Hypr.activeToplevelAppId)
 		font.italic: text === "desktop"
 	}
 }

@@ -27,7 +27,7 @@ Singleton {
 		readonly property bool showNetwork: true
 		readonly property bool showBluetooth: true
 		readonly property bool showIsland: true
-		readonly property bool showActiveWindowTitle: true
+		readonly property bool showActiveToplevelTitle: true
 		readonly property bool showVolume: true
 	}
 
