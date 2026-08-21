@@ -37,6 +37,17 @@ Singleton {
 		return top.title || top.lastIpcObject?.title || "";
 	}
 
+	readonly property string activeToplevelAppId: {
+		let top = _activeToplevel;
+		if (!top) return "";
+
+		return top.appId
+			?? top.class
+			?? top.lastIpcObject?.app_id
+			?? top.lastIpcObject?.class
+			?? "";
+	}
+
    property bool updateToplevelsTrigger: false
 
 	Connections {
