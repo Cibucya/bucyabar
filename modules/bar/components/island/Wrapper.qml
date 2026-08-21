@@ -10,7 +10,7 @@ Item {
 	StyledRect {
 		id: background
 
-		visible: BarConf.status.showSearch
+		visible: BarConf.status.showIsland
 
 		anchors.centerIn: parent
 
@@ -30,25 +30,10 @@ Item {
 			implicitWidth: activeWindow.width
 			implicitHeight: activeWindow.height
 
-			property real animationProgress: 0
-
 			ActiveWindowText {
 				id: activeWindow
 
 				anchors.centerIn: parent
-				anchors.verticalCenterOffset: titleHeight * (1 - activeWindowContainer.animationProgress)
-
-				opacity: activeWindowContainer.animationProgress
-			}
-
-			NumberAnimation {
-				id: scrollUpAnimation
-				target: activeWindowContainer
-				property: "animationProgress"
-				from: 0
-				to: 1
-				duration: background.implicitWidthAnimation.duration
-				easing.type: Easing.OutCubic
 			}
 		}
 
@@ -62,19 +47,6 @@ Item {
 
 			onExited: {
 				background.border.width = 2
-			}
-		}
-
-		Component.onCompleted: {
-			if (visible) {
-				scrollUpAnimation.start()
-			}
-		}
-
-		onVisibleChanged: {
-			if (visible) {
-				activeWindowContainer.animationProgress = 0;
-				scrollUpAnimation.start()
 			}
 		}
 	}
