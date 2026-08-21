@@ -32,7 +32,7 @@ Item {
 
 			property real animationProgress: 0
 
-			ActiveWindow {
+			ActiveWindowText {
 				id: activeWindow
 
 				anchors.centerIn: parent
