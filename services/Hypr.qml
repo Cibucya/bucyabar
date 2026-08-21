@@ -11,21 +11,30 @@ Singleton {
 	readonly property var workspaces: Hyprland.workspaces
 	readonly property var monitors: Hyprland.monitors
 
-	readonly property string activeToplevelClass: {
+	// Helper to resolve activeToplevel
+	readonly property var _activeToplevel: {
 		let dummy = updateToplevelsTrigger;
-
+		
 		let monitor = Hyprland.focusedMonitor;
 		if (monitor && monitor.activeWorkspace && monitor.activeWorkspace.lastIpcObject) {
 			if (monitor.activeWorkspace.lastIpcObject.windows === 0) {
-				return ""
+				return null
 			}
 		}
+	
+		return Hyprland.activeToplevel;
+	}
 
-		let toplevel = Hyprland.activeToplevel;
-		if (!toplevel) return "";
-		if (toplevel.class) return toplevel.class;
-		if (toplevel.lastIpcObject && toplevel.lastIpcObject.class)
-			return toplevel.lastIpcObject.class;
+	readonly property string activeToplevelClass: {
+		let top = _activeToplevel;
+		if (!top) return "";
+		return top.class || top.lastIpcObject?.class || "";
+	}
+
+	readonly property string activeToplevelTitle: {
+		let top = _activeToplevel;
+		if (!top) return "";
+		return top.title || top.lastIpcObject?.title || "";
 	}
 
    property bool updateToplevelsTrigger: false
