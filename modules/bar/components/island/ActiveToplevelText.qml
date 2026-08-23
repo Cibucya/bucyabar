@@ -19,7 +19,15 @@ Item {
 		font.pixelSize: AppearanceConf.font.size.larger
 		color: AppearanceConf.text
 
-		text: (Hypr.activeToplevelClass == "" ? "desktop" : Hypr.activeToplevelAppId)
-		font.italic: text === "desktop"
+		// TODO: fix text for an empty special workspace
+		text: {
+			if (Hypr.activeToplevelClass) return Hypr.activeToplevelClass;
+
+			const specialName = Hypr.focusedMonitor?.lastIpcObject.specialWorkspace.name;
+			const isSpecial = specialName && specialName.startsWith("special:");
+			return isSpecial ? "special" : "desktop";
+		}
+
+		font.italic: text === "desktop" || text === "special"
 	}
 }
