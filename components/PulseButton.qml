@@ -1,45 +1,41 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import qs.config
 
 Item {
 	id: root
-	
-	// Allow the user to click and define what happens
-	signal clicked()
 
-	// Let the user choose which item shrinks (Icon? Label? Both?)
+	signal clicked()
 	property Item shrinkTarget: null
 
 	implicitWidth: container.implicitWidth
 	implicitHeight: container.implicitHeight
 
 	default property alias content: container.data
+	property int childrenSpacing: AppearanceConf.padding.smaller
 
 	StyledRect {
 		id: bg
 		anchors.fill: parent
 
-		// The white flash overlay
-		// This sits on top of background but below the content
 		Rectangle {
 			id: flashOverlay
 			anchors.fill: parent
 			radius: bg.radius
-			color: "white"
-			opacity: 0 // Invisible by default
+			color: AppearanceConf.alpha("#ffffff", 0.3)
+			opacity: 0
 		}
 	}
 
-	// The container for Icon/Text
-	Item {
+	// TODO: RowLayout fixes binding loop but creates another issue when
+	// children can't set their own implicit dimensions
+	RowLayout {
 		id: container
 		anchors.centerIn: parent
-		implicitWidth: childrenRect.width
-		implicitHeight: childrenRect.height
+		spacing: childrenSpacing
 	}
 
-	// Animation Logic
 	SequentialAnimation {
 		id: clickAnim
 
@@ -55,7 +51,7 @@ Item {
 			NumberAnimation {
 				target: root.shrinkTarget ? root.shrinkTarget : container
 				property: "scale"
-				to: 0.85
+				to: 0.75
 				duration: AppearanceConf.anim.duration.fast
 				easing.type: Easing.OutQuad
 			}
@@ -88,12 +84,7 @@ Item {
 			root.clicked()
 		}
 
-		// default hover animations
-		onEntered: {
-			button.border.width = 2;
-		}
-		onExited: {
-			button.border.width = 0;
-		}
+		onEntered: bg.border.width = 2
+		onExited: bg.border.width = 0
 	}
 }
