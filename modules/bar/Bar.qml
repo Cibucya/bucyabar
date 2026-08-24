@@ -82,7 +82,7 @@ Scope {
 				VolumeComp {}
 				NetworkComp {}
 				BluetoothComp {}
-				Clock {}
+				ClockComp {}
 			}
 		}
 	}
