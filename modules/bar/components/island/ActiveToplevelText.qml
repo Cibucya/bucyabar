@@ -21,13 +21,19 @@ Item {
 
 		// TODO: fix text for an empty special workspace
 		text: {
-			if (Hypr.activeToplevelClass) return Hypr.activeToplevelClass;
+			const t = Hypr.activeToplevelClass;
+			const capitalize = IslandConf.capitalizeActiveToplevelText
+			if (t) return (capitalize ? t.charAt(0).toUpperCase() + t.slice(1) : t);
 
 			const specialName = Hypr.focusedMonitor?.lastIpcObject.specialWorkspace.name;
 			const isSpecial = specialName && specialName.startsWith("special:");
-			return isSpecial ? "special" : "desktop";
+			if (capitalize) return isSpecial ? "Special" : "Desktop";
+			else			return isSpecial ? "special" : "desktop";
 		}
 
-		font.italic: text === "desktop" || text === "special"
+		font.italic:{
+			const t = text.toLowerCase();
+			return t == "desktop" || t == "special"
+		}
 	}
 }
