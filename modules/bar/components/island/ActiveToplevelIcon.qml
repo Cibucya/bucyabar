@@ -20,7 +20,7 @@ Item {
 			return Quickshell.iconPath(appId, "application-x-executable")
 		}
 
-		implicitSize: source ? IslandConf.activeToplevelIconSize : 0
+		implicitSize: source == "" ? 0 : IslandConf.activeToplevelIconSize
 		mipmap: true
 	}
 }
