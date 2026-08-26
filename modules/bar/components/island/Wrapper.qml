@@ -38,6 +38,7 @@ Item {
 
 			ActiveToplevelIcon {
 				id: activeToplevelIcon
+				visible: implicitWidth > 0 && implicitHeight > 0
 				Layout.preferredWidth: activeToplevelIcon.implicitWidth
 				Layout.preferredHeight: activeToplevelIcon.implicitHeight
 				Layout.alignment: Qt.AlignVCenter
@@ -45,6 +46,7 @@ Item {
 
 			ActiveToplevelText {
 				id: activeToplevelText
+				visible: implicitWidth > 0 && implicitHeight > 0
 				Layout.alignment: Qt.AlignVCenter
 			}
 		}
