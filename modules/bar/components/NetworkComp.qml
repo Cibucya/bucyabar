@@ -1,11 +1,9 @@
 import Quickshell
 import QtQuick 2.15
-
 import qs.config
 import qs.widgets
 import qs.services
 import qs.components
-
 
 Item {
 	id: root
@@ -52,17 +50,9 @@ Item {
 				anchors.fill: button
 				hoverEnabled: true
 
-				onClicked: {
-					menuVisibility = !menuVisibility;
-				}
-
-				onEntered: {
-					button.border.width = 2;
-				}
-
-				onExited: {
-					button.border.width = 0;
-				}
+				onClicked: menuVisibility = !menuVisibility;
+				onEntered: button.border.width = 2;
+				onExited: button.border.width = 0;
 			}
 		}
 	}

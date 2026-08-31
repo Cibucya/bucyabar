@@ -18,7 +18,7 @@ Item {
 	Text {
 		visible: true
 		id: clock
-		font.family: AppearanceConf.font.family.clock
+		font.family: AppearanceConf.font.family.sans
 		font.pixelSize: AppearanceConf.font.size.def
 		color: AppearanceConf.text
 

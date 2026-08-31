@@ -1,21 +1,25 @@
+import QtQuick
+import QtQuick.Layouts
 import Quickshell
-import QtQuick 2.15
-
 import qs.config
 import qs.components
 
 Item {
 	id: root
 
+	implicitWidth: background.implicitWidth
+	implicitHeight: background.implicitHeight
+
 	StyledRect {
 		id: background
 
-		visible: BarConf.status.showSearch
+		visible: BarConf.status.showIsland
 
 		anchors.centerIn: parent
 
+		// Use layout's implicit size plus padding
 		implicitHeight: BarConf.barHeight - AppearanceConf.padding.small
-		implicitWidth: activeWindow.implicitWidth + AppearanceConf.padding.smaller * 2
+		implicitWidth: layout.implicitWidth + (AppearanceConf.padding.smaller * 2)
 		clip: true
 
 		animate: true
@@ -24,58 +28,35 @@ Item {
 		border.color: AppearanceConf.alpha(AppearanceConf.text, 0.3)
 		border.width: 2
 
-		Item {
-			id: activeWindowContainer
+		RowLayout {
+			id: layout
+
 			anchors.centerIn: parent
-			implicitWidth: activeWindow.width
-			implicitHeight: activeWindow.height
+			anchors.leftMargin : AppearanceConf.padding.smaller
+			anchors.rightMargin : AppearanceConf.padding.smaller
+			spacing: AppearanceConf.padding.small
 
-			property real animationProgress: 0
-
-			ActiveWindow {
-				id: activeWindow
-
-				anchors.centerIn: parent
-				anchors.verticalCenterOffset: titleHeight * (1 - activeWindowContainer.animationProgress)
-
-				opacity: activeWindowContainer.animationProgress
+			ActiveToplevelIcon {
+				id: activeToplevelIcon
+				visible: implicitWidth > 0 && implicitHeight > 0
+				Layout.preferredWidth: activeToplevelIcon.implicitWidth
+				Layout.preferredHeight: activeToplevelIcon.implicitHeight
+				Layout.alignment: Qt.AlignVCenter
 			}
 
-			NumberAnimation {
-				id: scrollUpAnimation
-				target: activeWindowContainer
-				property: "animationProgress"
-				from: 0
-				to: 1
-				duration: background.implicitWidthAnimation.duration
-				easing.type: Easing.OutCubic
+			ActiveToplevelText {
+				id: activeToplevelText
+				visible: implicitWidth > 0 && implicitHeight > 0
+				Layout.alignment: Qt.AlignVCenter
 			}
 		}
 
 		MouseArea {
-			anchors.fill: background
+			anchors.fill: parent
 			hoverEnabled: true
 
-			onEntered: {
-				background.border.width = 3
-			}
-
-			onExited: {
-				background.border.width = 2
-			}
-		}
-
-		Component.onCompleted: {
-			if (visible) {
-				scrollUpAnimation.start()
-			}
-		}
-
-		onVisibleChanged: {
-			if (visible) {
-				activeWindowContainer.animationProgress = 0;
-				scrollUpAnimation.start()
-			}
+			onEntered: background.border.width = 3
+			onExited: background.border.width = 2
 		}
 	}
 }

@@ -3,6 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
+import qs.utils
 
 Singleton {
 	id: root
@@ -10,6 +11,36 @@ Singleton {
 	readonly property var toplevels: Hyprland.toplevels
 	readonly property var workspaces: Hyprland.workspaces
 	readonly property var monitors: Hyprland.monitors
+	readonly property HyprlandWorkspace focusedWorkspace: Hyprland.focusedWorkspace
+	readonly property HyprlandMonitor focusedMonitor: Hyprland.focusedMonitor
+
+	readonly property HyprlandToplevel activeToplevel: {
+		const t = Hyprland.activeToplevel;
+		return t?.workspace?.name.startsWith("special:") || Hyprland.focusedWorkspace?.toplevels.values.length > 0 ? t : null;
+	}
+
+	readonly property string activeToplevelClass: {
+		let t = activeToplevel;
+		if (!t) return "";
+		return t.class || t.lastIpcObject?.class || "";
+	}
+
+	readonly property string activeToplevelTitle: {
+		let t = activeToplevel;
+		if (!t) return "";
+		return t.title || t.lastIpcObject?.title || "";
+	}
+
+	readonly property string activeToplevelAppId: {
+		let t = activeToplevel;
+		if (!t) return "";
+
+		return t.appId
+			?? t.class
+			?? t.lastIpcObject?.app_id
+			?? t.lastIpcObject?.class
+			?? "";
+	}
 
 	Connections {
 		function onRawEvent(event: HyprlandEvent): void {

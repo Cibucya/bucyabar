@@ -52,7 +52,7 @@ Scope {
 			RowLayout {
 				anchors.centerIn: parent
 				spacing: BarConf.spacing.def
-				SearchWrapper {}
+				IslandWrapper {}
 			}
 			
 			// Right section
@@ -82,7 +82,7 @@ Scope {
 				VolumeComp {}
 				NetworkComp {}
 				BluetoothComp {}
-				Clock {}
+				ClockComp {}
 			}
 		}
 	}
