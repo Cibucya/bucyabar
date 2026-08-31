@@ -17,7 +17,7 @@ Item {
 		source: {
 			const appId = Hypr.activeToplevelAppId;
 			if (!appId) return "";
-			return Quickshell.iconPath(appId, "application-x-executable")
+			return Quickshell.iconPath(appId.toLowerCase(), "application-x-executable")
 		}
 
 		implicitSize: source == "" ? 0 : IslandConf.activeToplevelIconSize
