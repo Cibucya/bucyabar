@@ -31,6 +31,12 @@ Singleton {
 		return t.title || t.lastIpcObject?.title || "";
 	}
 
+	readonly property string activeToplevelInitialTitle: {
+		let t = activeToplevel;
+		if (!t) return "";
+		return t.lastIpcObject?.initialTitle || "";
+	}
+
 	readonly property string activeToplevelAppId: {
 		let t = activeToplevel;
 		if (!t) return "";
