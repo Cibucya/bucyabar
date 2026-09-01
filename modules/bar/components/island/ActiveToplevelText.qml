@@ -21,7 +21,7 @@ Item {
 
 		// TODO: fix text for an empty special workspace
 		text: {
-			const t = Hypr.activeToplevelClass;
+			const t = Hypr.activeToplevelInitialTitle;
 			const capitalize = IslandConf.capitalizeActiveToplevelText
 			if (t) return (capitalize ? t.charAt(0).toUpperCase() + t.slice(1) : t);
 
