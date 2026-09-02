@@ -38,7 +38,7 @@ Singleton {
         readonly property int small: 8
         readonly property int def: 17
         readonly property int large: 25
-        readonly property int round: 1000
+        readonly property int round: 10000
     }
 
     component FontFamily: QtObject {
