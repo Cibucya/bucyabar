@@ -48,6 +48,14 @@ Singleton {
 			?? "";
 	}
 
+	// TODO: test
+	readonly property string activeToplevelPid: {
+		let t = activeToplevel;
+		if (!t) return "";
+
+		return t.lastIpcObject?.pid || "";
+	}
+
 	Connections {
 		function onRawEvent(event: HyprlandEvent): void {
 			const n = event.name;
