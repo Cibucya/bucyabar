@@ -18,6 +18,7 @@ Item {
 	StyledRect {
 		id: bg
 		anchors.fill: parent
+		color: "transparent"
 
 		Rectangle {
 			id: flashOverlay

@@ -29,6 +29,8 @@ Item {
 				animate: true
 				animBorderDuration: AppearanceConf.anim.duration.faster
 
+				color: "transparent"
+
 				// Square
 				implicitHeight: buttonIcon.implicitHeight + AppearanceConf.padding.smallest
 				implicitWidth: implicitHeight

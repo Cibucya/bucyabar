@@ -10,7 +10,6 @@ Rectangle {
 	property int animBorderDuration: AppearanceConf.defaultAnimDuration
 	property int animWidthDuration: AppearanceConf.defaultAnimDuration
 
-	color: "transparent"
 	radius: AppearanceConf.rounding.small
 	border.color: AppearanceConf.alpha(AppearanceConf.colors.light, 0.5)
 	border.width: 0
