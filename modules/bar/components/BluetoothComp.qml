@@ -33,7 +33,7 @@ Item {
 				implicitHeight: buttonIcon.implicitHeight + AppearanceConf.padding.smallest
 				implicitWidth: implicitHeight
 
-				anchors.centerIn: parent
+				//anchors.centerIn: parent
 
 				MaterialIcon {
 					id: buttonIcon

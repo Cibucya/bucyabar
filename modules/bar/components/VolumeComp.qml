@@ -39,7 +39,8 @@ RowLayout {
 			return AppearanceConf.text
 		}
 
-		anchors.verticalCenter: parent.verticalCenter
+		//anchors.verticalCenter: parent.verticalCenter
+		Layout.alignment: Qt.AlignVCenter
 		font.pointSize: AppearanceConf.font.size.larger
 	}
 
@@ -50,7 +51,7 @@ RowLayout {
 		implicitWidth: BarConf.volumeBarWidth || 125
 		implicitHeight: BarConf.volumeBarHeight || 4
 		radius: height/2
-		color: AppearanceConf.bg
+		color: AppearanceConf.alpha(AppearanceConf.text, 0.4)
 		//color: "#50ffffff"
 
 		StyledRect {

@@ -30,11 +30,13 @@ Item {
 				animate: true
 				animBorderDuration: AppearanceConf.anim.duration.faster
 
+				color: "transparent"
+
 				// Square
 				implicitHeight: networkIcon.implicitHeight + AppearanceConf.padding.smallest
 				implicitWidth: implicitHeight
 
-				anchors.centerIn: parent
+				//anchors.centerIn: parent
 
 				MaterialIcon {
 					id: networkIcon
@@ -47,7 +49,7 @@ Item {
 			}
 
 			MouseArea {
-				anchors.fill: button
+				//anchors.fill: button
 				hoverEnabled: true
 
 				onClicked: menuVisibility = !menuVisibility;
