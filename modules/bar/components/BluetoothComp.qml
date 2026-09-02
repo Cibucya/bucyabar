@@ -1,6 +1,6 @@
 import Quickshell
 import Quickshell.Io
-import QtQuick 2.15
+import QtQuick
 
 import qs.config
 import qs.widgets
