@@ -2,11 +2,12 @@ pragma Singleton
 
 import QtQuick
 import Quickshell
+import Quickshell.Io
 import qs.utils
 
 Singleton {
 	// Calls callback funciton when the process is done
-	function getDotDesktop(pid: string, callback: function) {
+	function getDotDesktop(pid: string, callback: var) {
 		findDotDesktopProcess.currentCallback = callback
 		findDotDesktopProcess.command = [
 			"sh",
