@@ -17,7 +17,7 @@ Item {
 		visible: BarConf.status.showActiveToplevelTitle
 		font.family: Appearance.font.family.sans
 		font.pixelSize: Appearance.font.size.larger
-		color: Appearance.colors.light
+		color: Appearance.colours.light
 
 		// TODO: fix text for an empty special workspace
 		text: {

@@ -17,12 +17,12 @@ Singleton {
 	readonly property Padding padding: Padding {}
 	readonly property Rounding rounding: Rounding {}
 	readonly property FontProps font: FontProps {}
-	readonly property Colors colors: Colors {}
+	readonly property Colours colours: Colours {}
 	readonly property Animation anim: Animation {}
 	readonly property int defaultAnimDuration: anim.duration.faster
 
-	readonly property color bg: isDark ? colors.dark : colors.light
-	readonly property color text: isDark ? colors.light : colors.dark
+	readonly property color bg: isDark ? colours.dark : colours.light
+	readonly property color text: isDark ? colours.light : colours.dark
 
 	component Padding: QtObject {
 		readonly property int smallest: 4
@@ -61,7 +61,7 @@ Singleton {
 		readonly property FontSize size: FontSize {}
 	}
 
-	component Colors: QtObject {
+	component Colours: QtObject {
 		readonly property color bright: "#ffffff"
 		readonly property color light: "#f5f5f5"
 		readonly property color dark: "#343f3e"

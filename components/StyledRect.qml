@@ -11,7 +11,7 @@ Rectangle {
 	property int animWidthDuration: Appearance.defaultAnimDuration
 
 	radius: Appearance.rounding.small
-	border.color: Appearance.alpha(Appearance.colors.light, 0.5)
+	border.color: Appearance.alpha(Appearance.colours.light, 0.5)
 	border.width: 0
 
 	Behavior on border.width {

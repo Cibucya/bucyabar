@@ -35,7 +35,7 @@ RowLayout {
 		}
 
 		color: {
-			if (isMuted || vol < 0.001) return Appearance.colors.mute
+			if (isMuted || vol < 0.001) return Appearance.colours.mute
 			return Appearance.text
 		}
 

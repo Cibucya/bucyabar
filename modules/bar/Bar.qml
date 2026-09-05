@@ -18,7 +18,7 @@ Scope {
 			screen: modelData
 			anchors { top: true; left: true; right: true }
 			implicitHeight: BarConf.barHeight + BarConf.screenSeparator.height
-			color: Appearance.alpha(Appearance.colors.light, 0.0)
+			color: Appearance.alpha(Appearance.colours.light, 0.0)
 
 			Rectangle {
 				visible: BarConf.screenSeparator.show
@@ -65,7 +65,7 @@ Scope {
 				spacing: BarConf.spacing.def
 				Rectangle {
 					id: rightSectionBackground
-					color: Appearance.colors.black
+					color: Appearance.colours.black
 					radius: Appearance.rounding.round
 
 					Layout.alignment: Qt.AlignVCenter

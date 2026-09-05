@@ -26,7 +26,7 @@ Scope {
 			}
 
 			animate: true
-			color: AppearanceConf.colors.light
+			color: AppearanceConf.colours.light
 		}
 	}
 }
