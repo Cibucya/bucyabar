@@ -65,7 +65,8 @@ Singleton {
 		readonly property color bright: "#ffffff"
 		readonly property color light: "#f5f5f5"
 		readonly property color dark: "#343f3e"
-		readonly property color darker: "#0d0d0d"
+		readonly property color darker: "#1a1a1a"
+		readonly property color darkest: "#0d0d0d"
 		readonly property color mute: "#ffbfc2"
 		readonly property color error: "#da3e44"
 	}
