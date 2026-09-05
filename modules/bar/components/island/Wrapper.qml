@@ -20,14 +20,14 @@ Item {
 		// Use layout's implicit size plus padding
 		implicitHeight: BarConf.barHeight - AppearanceConf.padding.small
 		implicitWidth: layout.implicitWidth + (AppearanceConf.padding.def * 2)
-		color: AppearanceConf.colors.darker
+		color: AppearanceConf.alpha("black", 1.0)
 		radius: AppearanceConf.rounding.round
 		clip: true
 
 		animate: true
 
 		border.color: AppearanceConf.alpha(AppearanceConf.text, 0.3)
-		border.width: 2
+		border.width: 0
 
 		RowLayout {
 			id: layout
@@ -56,8 +56,8 @@ Item {
 			anchors.fill: parent
 			hoverEnabled: true
 
-			onEntered: background.border.width = 3
-			onExited: background.border.width = 2
+			onEntered: background.border.width = 2
+			onExited: background.border.width = 0
 		}
 	}
 }
