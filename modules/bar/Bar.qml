@@ -18,10 +18,10 @@ Scope {
 			screen: modelData
 			anchors { top: true; left: true; right: true }
 			implicitHeight: BarConf.barHeight + BarConf.screenSeparator.height
-			//color: AppearanceConf.alpha(AppearanceConf.bg, 0.0)
-			color: AppearanceConf.alpha(AppearanceConf.bg, 0.2)
+			color: AppearanceConf.alpha(AppearanceConf.colors.light, 0.0)
 
 			Rectangle {
+				visible: BarConf.screenSeparator.show
 				height: BarConf.screenSeparator.height
 				color: BarConf.screenSeparator.color
 
@@ -63,26 +63,43 @@ Scope {
 					verticalCenter: parent.verticalCenter
 				}
 				spacing: BarConf.spacing.def
-				/*
-				PulseButton {
-					StyledRect {
-						color: "transparent"
-						implicitWidth: text.implicitWidth + 10
-						implicitHeight: text.implicitHeight
-						Text {
-							id: text
-							text: "test"
-							color: "white"
-							anchors.centerIn: parent
-							font.pointSize: 14
+				Rectangle {
+					id: rightWrapper
+					color: "black"
+					radius: AppearanceConf.rounding.round
+
+					Layout.alignment: Qt.AlignVCenter
+					Layout.preferredWidth: innerLayout.width + AppearanceConf.padding.largest * 2
+					Layout.preferredHeight: innerLayout.height
+
+					RowLayout {
+						id: innerLayout
+						spacing: BarConf.spacing.def
+						anchors.centerIn: parent
+						//Layout.alignment: Qt.AlignVCenter
+
+						/*
+						PulseButton {
+							StyledRect {
+								color: "transparent"
+								implicitWidth: text.implicitWidth + 10
+								implicitHeight: text.implicitHeight
+								Text {
+									id: text
+									text: "test"
+									color: "white"
+									anchors.centerIn: parent
+									font.pointSize: 14
+								}
+							}
 						}
+						*/
+						VolumeComp {}
+						NetworkComp {}
+						BluetoothComp {}
+						ClockComp {}
 					}
 				}
-				*/
-				VolumeComp {}
-				NetworkComp {}
-				BluetoothComp {}
-				ClockComp {}
 			}
 		}
 	}
