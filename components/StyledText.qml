@@ -8,6 +8,6 @@ Text {
 
 	property bool animate: false
 
-	font.family: AppearanceConf.font.family.sans
+	font.family: Appearance.font.family.sans
 	font.pixelSize: Appearance.font.size.def
 }

@@ -18,7 +18,7 @@ Scope {
 			screen: modelData
 			anchors { top: true; left: true; right: true }
 			implicitHeight: BarConf.barHeight + BarConf.screenSeparator.height
-			color: AppearanceConf.alpha(AppearanceConf.colors.light, 0.0)
+			color: Appearance.alpha(Appearance.colors.light, 0.0)
 
 			Rectangle {
 				visible: BarConf.screenSeparator.show
@@ -35,16 +35,16 @@ Scope {
 			RowLayout {
 				anchors {
 					left: parent.left
-					leftMargin: AppearanceConf.padding.largest
+					leftMargin: Appearance.padding.largest
 					verticalCenter: parent.verticalCenter
 				}
 				spacing: BarConf.spacing.def
 
 				Text {
 					text: Icons.osIcons.hyprland
-					color: AppearanceConf.text
-					font.family: AppearanceConf.font.family.nerd
-					font.pixelSize: AppearanceConf.font.size.largest
+					color: Appearance.text
+					font.family: Appearance.font.family.nerd
+					font.pixelSize: Appearance.font.size.largest
 				}
 			}
 			
@@ -59,17 +59,17 @@ Scope {
 			RowLayout {
 				anchors {
 					right: parent.right
-					rightMargin: AppearanceConf.padding.largest
+					rightMargin: Appearance.padding.largest
 					verticalCenter: parent.verticalCenter
 				}
 				spacing: BarConf.spacing.def
 				Rectangle {
 					id: rightSectionBackground
-					color: AppearanceConf.colors.black
-					radius: AppearanceConf.rounding.round
+					color: Appearance.colors.black
+					radius: Appearance.rounding.round
 
 					Layout.alignment: Qt.AlignVCenter
-					Layout.preferredWidth: innerLayout.width + AppearanceConf.padding.largest * 2
+					Layout.preferredWidth: innerLayout.width + Appearance.padding.largest * 2
 					Layout.preferredHeight: innerLayout.height
 
 					RowLayout {

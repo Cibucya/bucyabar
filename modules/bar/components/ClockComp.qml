@@ -18,9 +18,9 @@ Item {
 	Text {
 		visible: true
 		id: clock
-		font.family: AppearanceConf.font.family.sans
-		font.pixelSize: AppearanceConf.font.size.def
-		color: AppearanceConf.text
+		font.family: Appearance.font.family.sans
+		font.pixelSize: Appearance.font.size.def
+		color: Appearance.text
 
 		font.features: { "tnum": 1 }
 

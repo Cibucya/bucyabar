@@ -7,11 +7,11 @@ Rectangle {
 	id: root
 
 	property bool animate: true
-	property int animBorderDuration: AppearanceConf.defaultAnimDuration
-	property int animWidthDuration: AppearanceConf.defaultAnimDuration
+	property int animBorderDuration: Appearance.defaultAnimDuration
+	property int animWidthDuration: Appearance.defaultAnimDuration
 
-	radius: AppearanceConf.rounding.small
-	border.color: AppearanceConf.alpha(AppearanceConf.colors.light, 0.5)
+	radius: Appearance.rounding.small
+	border.color: Appearance.alpha(Appearance.colors.light, 0.5)
 	border.width: 0
 
 	Behavior on border.width {
@@ -20,7 +20,7 @@ Rectangle {
 		NumberAnimation {
 			duration: animBorderDuration
 			easing.type: Easing.BezierSpline
-			easing.bezierCurve: AppearanceConf.anim.curves.standartAccel
+			easing.bezierCurve: Appearance.anim.curves.standartAccel
 		}
 	}
 
@@ -30,7 +30,7 @@ Rectangle {
 		NumberAnimation {
 			duration: animWidthDuration
 			easing.type: Easing.BezierSpline
-			easing.bezierCurve: AppearanceConf.anim.curves.emphasizedDecel
+			easing.bezierCurve: Appearance.anim.curves.emphasizedDecel
 		}
 	}
 }

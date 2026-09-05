@@ -16,7 +16,7 @@ Item {
 	Item {
 		id: wrapper
 
-		implicitHeight: networkIcon.implicitHeight + AppearanceConf.padding.def
+		implicitHeight: networkIcon.implicitHeight + Appearance.padding.def
 		implicitWidth: implicitHeight
 		anchors.centerIn: parent
 
@@ -28,12 +28,12 @@ Item {
 				id: button
 
 				animate: true
-				animBorderDuration: AppearanceConf.anim.duration.faster
+				animBorderDuration: Appearance.anim.duration.faster
 
 				color: "transparent"
 
 				// Square
-				implicitHeight: networkIcon.implicitHeight + AppearanceConf.padding.smallest
+				implicitHeight: networkIcon.implicitHeight + Appearance.padding.smallest
 				implicitWidth: implicitHeight
 
 				//anchors.centerIn: parent
@@ -43,7 +43,7 @@ Item {
 					visible: BarConf.status.showNetwork
 					anchors.centerIn: parent
 					text: Network.active ? Icons.getNetworkIcon(Network.active.strength ?? 0) : "signal_wifi_off"
-					color: AppearanceConf.text
+					color: Appearance.text
 					transformOrigin: Item.Center
 				}
 			}

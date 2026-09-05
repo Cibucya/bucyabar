@@ -35,13 +35,13 @@ RowLayout {
 		}
 
 		color: {
-			if (isMuted || vol < 0.001) return AppearanceConf.colors.mute
-			return AppearanceConf.text
+			if (isMuted || vol < 0.001) return Appearance.colors.mute
+			return Appearance.text
 		}
 
 		//anchors.verticalCenter: parent.verticalCenter
 		Layout.alignment: Qt.AlignVCenter
-		font.pointSize: AppearanceConf.font.size.larger
+		font.pointSize: Appearance.font.size.larger
 	}
 
 	Rectangle {
@@ -51,14 +51,14 @@ RowLayout {
 		implicitWidth: BarConf.volumeBarWidth || 125
 		implicitHeight: BarConf.volumeBarHeight || 4
 		radius: height/2
-		color: AppearanceConf.alpha(AppearanceConf.text, 0.4)
+		color: Appearance.alpha(Appearance.text, 0.4)
 		//color: "#50ffffff"
 
 		StyledRect {
 			id: volumeStatus
 
 			animate: true
-			animWidthDuration: AppearanceConf.anim.duration.longest
+			animWidthDuration: Appearance.anim.duration.longest
 
 			implicitHeight: parent.implicitHeight
 			color: "white"

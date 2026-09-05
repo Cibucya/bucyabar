@@ -27,12 +27,12 @@ Item {
 				id: button
 
 				animate: true
-				animBorderDuration: AppearanceConf.anim.duration.faster
+				animBorderDuration: Appearance.anim.duration.faster
 
 				color: "transparent"
 
 				// Square
-				implicitHeight: buttonIcon.implicitHeight + AppearanceConf.padding.smallest
+				implicitHeight: buttonIcon.implicitHeight + Appearance.padding.smallest
 				implicitWidth: implicitHeight
 
 				//anchors.centerIn: parent
@@ -42,7 +42,7 @@ Item {
 					visible: BarConf.status.showBluetooth
 					anchors.centerIn: parent
 					text: "bluetooth"
-					color: AppearanceConf.text
+					color: Appearance.text
 					transformOrigin: Item.Center
 				}
 			}

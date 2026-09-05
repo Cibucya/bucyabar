@@ -13,7 +13,7 @@ Item {
 	implicitHeight: container.implicitHeight
 
 	default property alias content: container.data
-	property int childrenSpacing: AppearanceConf.padding.smaller
+	property int childrenSpacing: Appearance.padding.smaller
 
 	StyledRect {
 		id: bg
@@ -24,7 +24,7 @@ Item {
 			id: flashOverlay
 			anchors.fill: parent
 			radius: bg.radius
-			color: AppearanceConf.alpha("#ffffff", 0.3)
+			color: Appearance.alpha("#ffffff", 0.3)
 			opacity: 0
 		}
 	}
@@ -46,14 +46,14 @@ Item {
 				target: flashOverlay
 				property: "opacity"
 				to: 0.8
-				duration: AppearanceConf.anim.duration.fast
+				duration: Appearance.anim.duration.fast
 			}
 			// Shrink in
 			NumberAnimation {
 				target: root.shrinkTarget ? root.shrinkTarget : container
 				property: "scale"
 				to: 0.75
-				duration: AppearanceConf.anim.duration.fast
+				duration: Appearance.anim.duration.fast
 				easing.type: Easing.OutQuad
 			}
 		}
@@ -64,14 +64,14 @@ Item {
 				target: flashOverlay
 				property: "opacity"
 				to: 0
-				duration: AppearanceConf.defaultAnimDuration
+				duration: Appearance.defaultAnimDuration
 			}
 			// Grow back
 			NumberAnimation {
 				target: root.shrinkTarget ? root.shrinkTarget : container
 				property: "scale"
 				to: 1.0
-				duration: AppearanceConf.defaultAnimDuration
+				duration: Appearance.defaultAnimDuration
 				easing.type: Easing.OutBack
 			}
 		}

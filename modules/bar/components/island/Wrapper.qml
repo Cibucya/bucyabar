@@ -18,24 +18,24 @@ Item {
 		anchors.centerIn: parent
 
 		// Use layout's implicit size plus padding
-		implicitHeight: BarConf.barHeight - AppearanceConf.padding.small
-		implicitWidth: layout.implicitWidth + (AppearanceConf.padding.def * 2)
-		color: AppearanceConf.alpha(AppearanceConf.colors.black, 1.0)
-		radius: AppearanceConf.rounding.round
+		implicitHeight: BarConf.barHeight - Appearance.padding.small
+		implicitWidth: layout.implicitWidth + (Appearance.padding.def * 2)
+		color: Appearance.alpha(Appearance.colors.black, 1.0)
+		radius: Appearance.rounding.round
 		clip: true
 
 		animate: true
 
-		border.color: AppearanceConf.alpha(AppearanceConf.text, 0.3)
+		border.color: Appearance.alpha(Appearance.text, 0.3)
 		border.width: 0
 
 		RowLayout {
 			id: layout
 
 			anchors.centerIn: parent
-			anchors.leftMargin : AppearanceConf.padding.smaller
-			anchors.rightMargin : AppearanceConf.padding.smaller
-			spacing: AppearanceConf.padding.small
+			anchors.leftMargin : Appearance.padding.smaller
+			anchors.rightMargin : Appearance.padding.smaller
+			spacing: Appearance.padding.small
 
 			ActiveToplevelIcon {
 				id: activeToplevelIcon
