@@ -32,6 +32,7 @@ Singleton {
 	}
 
 	component ScreenSeparator: QtObject {
+		readonly property bool show: false
 		readonly property int height: 1
 		readonly property string color: AppearanceConf.alpha(AppearanceConf.colors.bright, 0.1);
 	}
