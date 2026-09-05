@@ -64,8 +64,8 @@ Scope {
 				}
 				spacing: BarConf.spacing.def
 				Rectangle {
-					id: rightWrapper
-					color: "black"
+					id: rightSectionBackground
+					color: AppearanceConf.colors.black
 					radius: AppearanceConf.rounding.round
 
 					Layout.alignment: Qt.AlignVCenter

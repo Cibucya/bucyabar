@@ -20,7 +20,7 @@ Item {
 		// Use layout's implicit size plus padding
 		implicitHeight: BarConf.barHeight - AppearanceConf.padding.small
 		implicitWidth: layout.implicitWidth + (AppearanceConf.padding.def * 2)
-		color: AppearanceConf.alpha("black", 1.0)
+		color: AppearanceConf.alpha(AppearanceConf.colors.black, 1.0)
 		radius: AppearanceConf.rounding.round
 		clip: true
 
