@@ -10,6 +10,7 @@ Item {
 	Text {
 		id: icon
 		text: Icons.osIcons.hyprland
+		anchors.centerIn: parent
 		color: Appearance.text
 		font.family: Appearance.font.family.nerd
 		font.pixelSize: Appearance.font.size.largest
