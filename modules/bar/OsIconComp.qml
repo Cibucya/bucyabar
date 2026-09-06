@@ -5,6 +5,8 @@ import qs.widgets
 
 Item {
 	id: root
+	implicitWidth: icon.implicitWidth
+	implicitHeight: icon.implicitHeight
 	Text {
 		id: icon
 		text: Icons.osIcons.hyprland
