@@ -26,7 +26,7 @@ Item {
 
 		animate: true
 
-		border.color: Appearance.alpha(Appearance.text, 0.3)
+		border.color: Appearance.alpha(Appearance.colours.light, 0.1)
 		border.width: 0
 
 		RowLayout {
