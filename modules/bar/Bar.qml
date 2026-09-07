@@ -17,7 +17,7 @@ Scope {
 			required property var modelData
 			screen: modelData
 			anchors { top: true; left: true; right: true }
-			implicitHeight: BarConf.barHeight + BarConf.screenSeparator.height
+			implicitHeight: BarConf.barHeight + BarConf.screenSeparator.height + Appearance.padding.smallest
 			color: Appearance.alpha(Appearance.colours.light, 0.0)
 
 			Rectangle {
@@ -40,20 +40,14 @@ Scope {
 				border.color: Appearance.alpha(Appearance.colours.light, 0.1)
 				border.width: 0
 
-				/*
-				implicitWidth: leftLayout.implicitWidth + Appearance.padding.smaller * 2
-				implicitHeight: leftLayout.implicitHeight + Appearance.padding.smallest * 2
-				radius: Appearance.rounding.round
-				*/
-				implicitHeight: leftLayout.implicitHeight + Appearance.padding.small * 2
-				implicitWidth: implicitHeight
+				implicitHeight: BarConf.barHeight
+				implicitWidth: leftLayout.implicitWidth + Appearance.padding.def * 2
 				radius: (implicitHeight / 2) - 1
 
 				anchors {
 					left: parent.left
 					bottom: parent.bottom
 					leftMargin: Appearance.padding.largest
-					//verticalCenter: parent.verticalCenter
 				}
 
 				RowLayout {
@@ -66,7 +60,7 @@ Scope {
 			}
 			
 			// Center section
-			Rectangle {
+			StyledRect {
 				id: centerSectionWrapper
 				// Island manages it's own background
 				// TODO: this is probably a bad design decision since now its
@@ -74,13 +68,16 @@ Scope {
 				// configuration", consider moving the island background into
 				// this file or take a look at other ways of handling the island
 				// background
-				color: "transparent"
+				color: Appearance.colours.black
+				//color: "transparent"
 				border.color: Appearance.alpha(Appearance.colours.light, 0.1)
 				border.width: 0
-				radius: Appearance.rounding.round
 
-				implicitWidth: centerLayout.implicitWidth + Appearance.padding.largest * 2
-				implicitHeight: centerLayout.implicitHeight
+				implicitWidth: centerLayout.implicitWidth + Appearance.padding.def * 2
+				implicitHeight: BarConf.barHeight
+				radius: (implicitHeight / 2) - 1
+				clip: true
+				animate: true
 
 				anchors {
 					bottom: parent.bottom
@@ -92,7 +89,9 @@ Scope {
 					spacing: BarConf.spacing.def
 					anchors.centerIn: parent
 
-					IslandWrapper {}
+					IslandWrapper {
+						visible: BarConf.status.showIsland
+					}
 				}
 			}
 
@@ -104,7 +103,7 @@ Scope {
 				border.width: 0
 
 				implicitWidth: rightLayout.implicitWidth + Appearance.padding.def * 2
-				implicitHeight: rightLayout.implicitHeight
+				implicitHeight: BarConf.barHeight
 				radius: (implicitHeight / 2) - 1
 
 				anchors {

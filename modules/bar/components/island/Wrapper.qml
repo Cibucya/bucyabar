@@ -7,27 +7,17 @@ import qs.components
 Item {
 	id: root
 
-	implicitWidth: background.implicitWidth
-	implicitHeight: background.implicitHeight
+	implicitWidth: wrapper.implicitWidth
+	implicitHeight: wrapper.implicitHeight
 
-	StyledRect {
-		id: background
-
-		visible: BarConf.status.showIsland
+	Rectangle {
+		id: wrapper
 
 		anchors.centerIn: parent
 
-		// Use layout's implicit size plus padding
-		implicitHeight: BarConf.barHeight - Appearance.padding.small
-		implicitWidth: layout.implicitWidth + (Appearance.padding.def * 2)
-		color: Appearance.alpha(Appearance.colours.black, 1.0)
-		radius: (implicitHeight / 2) - 1
-		clip: true
-
-		animate: true
-
-		border.color: Appearance.alpha(Appearance.colours.light, 0.1)
-		border.width: 0
+		implicitHeight: layout.implicitHeight
+		implicitWidth: layout.implicitWidth
+		color: "transparent"
 
 		RowLayout {
 			id: layout
@@ -50,14 +40,6 @@ Item {
 				visible: implicitWidth > 0 && implicitHeight > 0
 				Layout.alignment: Qt.AlignVCenter
 			}
-		}
-
-		MouseArea {
-			anchors.fill: parent
-			hoverEnabled: true
-
-			onEntered: background.border.width = 2
-			onExited: background.border.width = 0
 		}
 	}
 }
