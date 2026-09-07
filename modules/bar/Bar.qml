@@ -16,15 +16,24 @@ Scope {
 			id: mainWindow
 			required property var modelData
 			screen: modelData
-			anchors { top: true; left: true; right: true }
-			implicitHeight: BarConf.barHeight + BarConf.screenSeparator.height + Appearance.padding.smallest
+
 			color: Appearance.alpha(Appearance.colours.light, 0.0)
+			anchors { top: true; left: true; right: true }
+			implicitHeight: {
+				let height = BarConf.barHeight
+				let padding = Appearance.padding.smallest
+				let sep = BarConf.screenSeparator.height
+				let sepShow = BarConf.screenSeparator.show
+
+				return height + padding + (sepShow ? sep : 0)
+			}
 
 			Rectangle {
 				id: screenSeparatorRect
 				visible: BarConf.screenSeparator.show
-				height: BarConf.screenSeparator.height
+
 				color: BarConf.screenSeparator.color
+				implicitHeight: BarConf.screenSeparator.height
 
 				anchors {
 					bottom: parent.bottom
@@ -36,6 +45,9 @@ Scope {
 			// Left section
 			Rectangle {
 				id: leftSectionWrapper
+
+				visible: leftLayout.implicitWidth > 0 && leftLayout.implicitHeight > 0
+
 				color: Appearance.colours.black
 				border.color: Appearance.alpha(Appearance.colours.light, 0.1)
 				border.width: 0
@@ -58,18 +70,14 @@ Scope {
 					OsIconComp {}
 				}
 			}
-			
+
 			// Center section
 			StyledRect {
 				id: centerSectionWrapper
-				// Island manages it's own background
-				// TODO: this is probably a bad design decision since now its
-				// hard to take out the "bar background" into the
-				// configuration", consider moving the island background into
-				// this file or take a look at other ways of handling the island
-				// background
+
+				visible: centerLayout.implicitWidth > 0 && centerLayout.implicitHeight > 0
+
 				color: Appearance.colours.black
-				//color: "transparent"
 				border.color: Appearance.alpha(Appearance.colours.light, 0.1)
 				border.width: 0
 
@@ -98,6 +106,9 @@ Scope {
 			// Right section
 			Rectangle {
 				id: rightSectionWrapper
+
+				visible: rightLayout.implicitWidth > 0 && rightLayout.implicitHeight > 0
+
 				color: Appearance.colours.black
 				border.color: Appearance.alpha(Appearance.colours.light, 0.1)
 				border.width: 0
