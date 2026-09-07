@@ -21,7 +21,7 @@ Item {
 		implicitHeight: BarConf.barHeight - Appearance.padding.small
 		implicitWidth: layout.implicitWidth + (Appearance.padding.def * 2)
 		color: Appearance.alpha(Appearance.colours.black, 1.0)
-		radius: Appearance.rounding.round
+		radius: (implicitHeight / 2) - 1
 		clip: true
 
 		animate: true
