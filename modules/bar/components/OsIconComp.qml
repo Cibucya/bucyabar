@@ -13,7 +13,7 @@ Item {
 		anchors.centerIn: parent
 		color: Appearance.text
 		font.family: Appearance.font.family.nerd
-		font.pixelSize: Appearance.font.size.largest
+		font.pixelSize: Appearance.font.size.larger
 	}
 }
 
