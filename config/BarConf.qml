@@ -8,7 +8,7 @@ Singleton {
 	id: root
 
 	readonly property Spacing spacing: Spacing {}
-	readonly property int barHeight: 30
+	readonly property int barHeight: 29
 	readonly property real barOpacity: 0.4
 	readonly property int networkMenuWidth: 250
 	readonly property int volumeBarWidth: 125
