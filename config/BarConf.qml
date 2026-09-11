@@ -29,6 +29,7 @@ Singleton {
 		readonly property bool showIsland: true
 		readonly property bool showActiveToplevelTitle: true
 		readonly property bool showVolume: true
+		readonly property bool showClock: true
 	}
 
 	component ScreenSeparator: QtObject {
