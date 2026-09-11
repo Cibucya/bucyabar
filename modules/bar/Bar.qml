@@ -128,10 +128,10 @@ Scope {
 					spacing: BarConf.spacing.def
 					anchors.centerIn: parent
 
-					VolumeComp { visible: BarConf.status.showVolume }
-					NetworkComp { visible: BarConf.status.showNetwork }
-					BluetoothComp { visible: BarConf.status.showBluetooth }
-					ClockComp { visible: BarConf.status.showClock }
+					VolumeComp     { visible: BarConf.status.showVolume }
+					NetworkComp    { visible: BarConf.status.showNetwork }
+					BluetoothComp  { visible: BarConf.status.showBluetooth }
+					ClockComp      { visible: BarConf.status.showClock }
 				}
 			}
 		}
