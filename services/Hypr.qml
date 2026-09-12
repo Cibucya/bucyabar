@@ -48,7 +48,6 @@ Singleton {
 			?? "";
 	}
 
-	// TODO: test
 	readonly property string activeToplevelPid: {
 		let t = activeToplevel;
 		if (!t) return "";
