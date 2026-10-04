@@ -17,7 +17,8 @@ Item {
 		source: {
 			const appId = Hypr.activeToplevelAppId;
 			if (!appId) return "";
-			return Quickshell.iconPath(appId.toLowerCase(), "application-x-executable")
+			const path = DesktopEntries.heuristicLookup(appId).icon;
+			return Quickshell.iconPath(path, "application-x-executable")
 		}
 
 		implicitSize: source == "" ? 0 : IslandConf.activeToplevelIconSize
